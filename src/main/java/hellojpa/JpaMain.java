@@ -30,6 +30,11 @@ public class JpaMain {
             Member findMember = em.find(Member.class,member.getId());
             Team findTeam = findMember.getTeam();
 
+            // 수정 : 100번 팀의 정보를 가져와서 멤버의 팀 정보위에 덮어씌움
+            Team newTeam = em.find(Team.class,100L);
+            findMember.setTeam(newTeam);
+
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
