@@ -6,18 +6,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Member {
-
+public class Team {
     @Id
     @GeneratedValue
-    @Column(name = "MAMBER_ID")
-    private Long id;
-    @Column(name = "USERNAME")
-    private String username;
-
     @Column(name = "TEAM_ID")
-    private Long teamId;
+    private Long id;
 
+    private String name;
 
 }
-
