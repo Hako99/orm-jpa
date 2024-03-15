@@ -24,7 +24,10 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
-            team.getMembers().add(member);
+//            team.getMembers().add(member);
+
+            em.flush();
+            em.clear();
 
             Team findTeam = em.find(Team.class,team.getId());
             List<Member> members = findTeam.getMembers();
@@ -34,8 +37,6 @@ public class JpaMain {
             }
 
 
-            em.flush();
-            em.clear();
 
             tx.commit();
         } catch (Exception e) {
